@@ -29,6 +29,8 @@ class theme_aspire_core_renderer extends core_renderer {
         return parent::render_custom_menu_item($transmutedmenunode);
     }
 
+    
+
     /**
      * Outputs a heading
      * @param string $text The text of the heading
@@ -45,6 +47,9 @@ class theme_aspire_core_renderer extends core_renderer {
         }
         return html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => renderer_base::prepare_classes($classes)));*/
         $content  = html_writer::start_tag('div', array('class'=>'headingcontainer'));
+        //$content  = html_writer::start_tag('h1', array('class'=>'heading'));
+        $content .= html_writer::tag('div', 'Welcome to My Learning', array('class'=>'learn'));
+        
         $content .= html_writer::empty_tag('img', array('src'=>$this->pix_url('headingpic', 'theme'), 'alt'=>'', 'class'=>'headingimage'));
         $content .= parent::heading($text, $level, $classes, $id);
         $content .= html_writer::end_tag('div');
